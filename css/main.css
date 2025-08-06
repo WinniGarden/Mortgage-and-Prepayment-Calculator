@@ -1,0 +1,111 @@
+/* 补充Tailwind未覆盖的样式 */
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* 输入框聚焦动画 */
+input:focus, select:focus {
+    transition: all 0.2s ease;
+}
+
+/* 表格行悬停效果增强 */
+tbody tr:hover {
+    background-color: rgba(59, 130, 246, 0.03);
+}
+
+/* 提前还款行样式 */
+.bg-blue-50 {
+    background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* 按钮点击反馈 */
+button:active {
+    transform: scale(0.98);
+}
+
+/* 数字输入框去掉上下箭头 */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* 图表容器响应式调整 */
+@media (max-width: 768px) {
+    .chart-container {
+        height: 240px !important;
+    }
+}
+
+/* 表单元素适配小屏幕 */
+@media (max-width: 640px) {
+    .grid-cols-1 md:grid-cols-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .flex-wrap gap-4 {
+        gap: 2px;
+    }
+    
+    .lg:col-span-3, .lg:col-span-7 {
+        padding: 4px;
+    }
+}
+
+/* 打印样式优化 */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    header, button, .chart-container {
+        display: none;
+    }
+    
+    #resultContent {
+        display: block !important;
+        margin: 0;
+        padding: 0;
+    }
+    
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    @page {
+        margin: 1cm;
+    }
+}
